@@ -694,6 +694,17 @@ using namespace std;
 	return size;
 }
 
+- (NSInteger)zSize:(NSString *)table{
+	if (![table isKindOfClass:[NSString class]]) {
+		return -1;
+	}
+	
+	string name(table.UTF8String);
+	NSInteger size = (NSInteger)self.ssdb->zsize(name);
+	
+	return size;
+}
+
 #pragma mark - del/clear
 
 - (void)hDel:(NSString *)table Key:(NSString *)aKey{

@@ -75,6 +75,7 @@
 
 - (NSInteger)hSize:(NSString *)table;
 - (NSInteger)qSize:(NSString *)table;
+- (NSInteger)zSize:(NSString *)table;
 
 #pragma mark - del/clear
 

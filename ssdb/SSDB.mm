@@ -16,17 +16,16 @@
 @implementation SSDB
 
 + (SSDB *)shared{
-    static SSDB * _ssdb = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString *  db_path = [NSString stringWithFormat:@"Documents/db"];
-        db_path = [NSHomeDirectory() stringByAppendingPathComponent:db_path];
-        NSLog(@"%@",db_path);
-        _ssdb = [[SSDB alloc] init];
-        Options opt; opt.compression = "yes";
-        _ssdb.ssdb = SSDBImpl::open(opt, db_path.UTF8String);
-    });
-    return _ssdb;
+	static SSDB * _ssdb = nil;
+	if (!_ssdb) {
+		NSString *  db_path = [NSString stringWithFormat:@"Documents/db"];
+		db_path = [NSHomeDirectory() stringByAppendingPathComponent:db_path];
+		NSLog(@"%@",db_path);
+		_ssdb = [[SSDB alloc] init];
+		Options opt; opt.compression = "yes";
+		_ssdb.ssdb = SSDBImpl::open(opt, db_path.UTF8String);
+	}
+	return _ssdb;
 }
 
 - (BOOL)set:(NSString *)key string:(NSString *)string{
