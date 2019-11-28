@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "ssdb"
+  s.name         = "SSDB"
   s.version      = "1.0.0"
   s.summary      = "SSDB - A fast NoSQL database, an alternative to Redis"
   s.description  = <<-DESC
@@ -25,7 +25,6 @@ Pod::Spec.new do |s|
     end
 
     ss.subspec 'include' do |sss|
-      sss.libraries    = 'c++', 'stdc++'
       sss.source_files = 'ssdb/leveldb/include/*'
     end
 
@@ -53,12 +52,12 @@ Pod::Spec.new do |s|
   s.source = { :git => "https://github.com/mysteriouss/ssdb.framework.iOS.git", :tag => s.version.to_s }
   s.source_files = 'ssdb/*'
   s.public_header_files = 'ssdb/*.h'
-  s.libraries = 'c++', 'stdc++'
   s.pod_target_xcconfig = {
       'CLANG_CXX_LANGUAGE_STANDARD' => 'compiler-default',
       'CLANG_CXX_LIBRARY' => 'libc++',
       'OTHER_LDFLAGS' => '$(inherited) -ObjC',
   }
+  s.libraries = 'c++', 'stdc++'
   s.header_mappings_dir = 'ssdb'
   s.exclude_files = []
   s.requires_arc = true
