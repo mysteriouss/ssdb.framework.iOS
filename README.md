@@ -7,7 +7,7 @@ Add this to your Podfile:
 	inhibit_all_warnings!
 
 	target 'ssdb-ios' do
-	    pod 'ssdb', :podspec => 'https://raw.github.com/mysteriouss/ssdb.framework.iOS/master/ssdb.podspec'
+	    pod 'SSDB', :podspec => 'https://raw.github.com/mysteriouss/ssdb.framework.iOS/master/ssdb.podspec'
 	end
 
 Run in Terminal or Cocoapods App:
@@ -16,15 +16,15 @@ Run in Terminal or Cocoapods App:
 
 Include headers:
 
-	#import <ssdb/SSDB.h>
+	#import <SSDB/SSDB.h>
 
 In case of build error, change ssdb-dummy.m file type in "Identify and Type" pannel to
 
         Objective-C++ Source
 
-Or rename ssdb-dummy.m to
+Or rename SSDB-dummy.m to
 
-	ssdb-dummy.mm
+	SSDB-dummy.mm
 
 Or simply upgrade cocoapods to the latest version
 
